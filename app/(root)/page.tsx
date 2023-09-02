@@ -1,10 +1,26 @@
-import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+"use client";
 
-export default function Home() {
+import { useEffect } from "react";
+
+import { useGuideModal } from "@/hooks/use-guide-modal";
+
+const SetupPage = () => {
+  const onOpen = useGuideModal((state) => state.onOpen);
+  const isOpen = useGuideModal((state) => state.isOpen);
+
+  useEffect(() => {
+    if (!isOpen) {
+      onOpen();
+  }
+}, [isOpen, onOpen]
+  
+  )
+
   return (
     <div className="p-4">
-      this is a protected route!
+Root Page
     </div>
   )
 }
+
+export default SetupPage;
