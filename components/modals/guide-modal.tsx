@@ -41,25 +41,15 @@ export const GuideModal = () => {
         try {
             setLoading(true);
 
-            throw new Error("x");
-
             const response = await axios.post('/api/guides', values);
-
-            if (response.status === 200) {
-                toast.success("Guide Created");
-            } else {
-                toast.error(response.data.message || "Something went wrong!");
-            }
-        } catch (error) {
-            if (error.response && error.response.data && error.response.data.message) {
-                toast.error(error.response.data.message);
-            } else {
-                toast.error("Something went wrong!");
-            }
-        } finally {
+            
+            window.location.assign(`/${response.data.id}`);
+            } catch (error) {
+            toast.error('Something went wrong');
+            } finally {
             setLoading(false);
-        }
-    }
+            }
+        };
     
     return (
         <Modal
