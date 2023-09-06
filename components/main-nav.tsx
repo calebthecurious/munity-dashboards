@@ -19,9 +19,9 @@ export function MainNav({
       active: pathname === `/${params.guideId}`,
     },
     {
-      href: `/${params.guideId}/learn`,
-      label: 'Learn',
-      active: pathname === `/${params.guideId}/learn`,
+      href: `/${params.guideId}/billboards`,
+      label: 'Billboards',
+      active: pathname === `/${params.guideId}/billboard`,
     },
     {
       href: `/${params.guideId}/categories`,
