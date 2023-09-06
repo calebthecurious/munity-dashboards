@@ -14,6 +14,8 @@ export default async function SetupLayout({
     redirect('/sign-in');
   }
 
+  const billboard = await prismadb.billboard
+
   const guide = await prismadb.guide.findFirst({
     where: {
       userId,
